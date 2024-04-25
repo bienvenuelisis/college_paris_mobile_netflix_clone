@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
+import 'package:netflix_clone/features/home/screens/movie_details_screen.dart';
+import 'package:netflix_clone/functions/navigation.dart';
 
 class HomeScreen extends StatelessWidget {
   @override
@@ -66,32 +68,62 @@ class HomeScreen extends StatelessWidget {
                         ],
                       ),
                     ),
-                    SizedBox(
-                      height: 50,
-                      width: MediaQuery.sizeOf(context).width * 0.75,
-                      child: ColoredBox(
-                        color: Colors.red,
-                        child: ElevatedButton(
-                          onPressed: null,
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: Colors.red,
-                            foregroundColor: Colors.red,
-                            elevation: 10,
-                          ),
-                          child: Text(
-                            'Get Started',
-                            style: TextStyle(
-                              color: Colors.white,
-                            ),
-                          ),
-                        ),
-                      ),
-                    ),
+                    GetStartedButton(),
                   ],
                 ),
               )
             ],
           ),
+        ),
+      ),
+    );
+  }
+}
+
+class GetStartedButton extends StatefulWidget {
+  final Color couleur;
+  const GetStartedButton({
+    this.couleur = Colors.red,
+    super.key,
+  });
+
+  @override
+  State<GetStartedButton> createState() => _GetStartedButtonState();
+}
+
+class _GetStartedButtonState extends State<GetStartedButton> {
+  bool loading = false;
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      height: 50,
+      width: MediaQuery.sizeOf(context).width * 0.75,
+      child: ColoredBox(
+        color: widget.couleur,
+        child: ElevatedButton(
+          onPressed: () {
+            setState(() {
+              loading = !loading;
+              print(loading);
+            });
+            // allerSurUnePageEtMaintenirLaPagePrecedente(
+            //   context,
+            //   MovieDetailsScreen(),
+            // );
+          },
+          style: ElevatedButton.styleFrom(
+            backgroundColor: Colors.red,
+            foregroundColor: Colors.red,
+            elevation: 10,
+          ),
+          child: loading
+              ? CircularProgressIndicator()
+              : Text(
+                  'Get Started',
+                  style: TextStyle(
+                    color: Colors.white,
+                  ),
+                ),
         ),
       ),
     );
