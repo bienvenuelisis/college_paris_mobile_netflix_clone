@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 
 class MovieDetailsScreen extends StatelessWidget {
   @override
@@ -10,42 +9,54 @@ class MovieDetailsScreen extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            SizedBox(
-              height: 300,
-              width: MediaQuery.sizeOf(context).width,
-              child: Stack(
-                children: [
-                  Positioned.fill(
-                    child: Container(
-                      color: Colors.grey,
-                      height: 300,
-                      width: 500,
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: SizedBox(
+                height: 180,
+                width: MediaQuery.sizeOf(context).width,
+                child: Stack(
+                  children: [
+                    Positioned.fill(
+                      child: Container(
+                        color: Colors.grey,
+                        height: 300,
+                        width: 500,
+                      ),
                     ),
-                  ),
-                  Positioned(
-                    child: Image.asset(
-                      'resources/images/im.png',
-                      color: Colors.white,
+                    Positioned(
+                      child: Image.asset(
+                        'resources/images/im.png',
+                        color: Colors.white,
+                      ),
+                      right: 80,
+                      top: 8,
                     ),
-                    right: 80,
-                    top: 8,
-                  ),
-                  Positioned(
-                    child: Image.asset(
-                      'resources/images/close.png',
-                      color: Colors.white,
+                    Positioned(
+                      child: Image.asset(
+                        'resources/images/close.png',
+                        color: Colors.white,
+                      ),
+                      right: 10,
                     ),
-                    right: 10,
-                  ),
-                  Positioned(
-                    child: Image.asset(
-                      'resources/images/play.png',
-                      color: Colors.white,
+                    Positioned(
+                      child: Image.asset(
+                        'resources/images/bout.png',
+                        width: 50,
+                        height: 50,
+                      ),
+                      top: 60,
+                      left: MediaQuery.sizeOf(context).width / 2 - 50,
                     ),
-                    top: 140,
-                    left: MediaQuery.sizeOf(context).width / 2,
-                  ),
-                ],
+                    Positioned(
+                      child: Text(
+                        ' Trailer ',
+                        style: TextStyle(color: Colors.white),
+                      ),
+                      bottom: 10,
+                      left: 10,
+                    ),
+                  ],
+                ),
               ),
             ),
             Row(
@@ -137,7 +148,7 @@ class MovieDetailsScreen extends StatelessWidget {
               ),
             ),
             Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Column(
                   children: [
@@ -149,61 +160,137 @@ class MovieDetailsScreen extends StatelessWidget {
                       ),
                     ),
                     Text(
-                      ' Hearts flip as Heather weds Tarek. Jason and Mary grapple with being ghosted. Go solo or take the next step: The agents face life-changing decisions. ',
-                      style: TextStyle(color: Colors.white),
+                      ' Hearts flip as Heather weds Tarek.Jason and Mary grapple with being ghosted.',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 12,
+                      ),
+                    ),
+                    Text(
+                      ' Go solo or take the next step: The agents face life-changing decisions. ',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 12,
+                      ),
                     ),
                   ],
                 ),
               ],
             ),
-            Center(
-              child: Row(
+
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 5),
+              child: Column(
                 children: [
-                  Column(
-                    children: [
-                      Image.asset(
-                        'resources/images/add.png',
-                        color: Colors.white,
-                      ),
-                      Text(
-                        ' My List ',
-                        style: TextStyle(color: Colors.white),
-                      ),
-                    ],
-                  ),
-                  Column(
-                    children: [
-                      Image.asset(
-                        'resources/images/Like.png',
-                        color: Colors.white,
-                      ),
-                      Text(
-                        ' Rate ',
-                        style: TextStyle(color: Colors.white),
-                      ),
-                    ],
-                  ),
-                  Column(
-                    children: [
-                      Image.asset(
-                        'resources/images/Share.png',
-                        color: Colors.white,
-                      ),
-                      Text(
-                        ' Share ',
-                        style: TextStyle(color: Colors.white),
-                      ),
-                    ],
+                  Padding(
+                    padding: const EdgeInsets.all(8.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Column(
+                            children: [
+                              Image.asset(
+                                'resources/images/add.png',
+                                color: Colors.white,
+                              ),
+                              Text(
+                                ' My List ',
+                                style: TextStyle(color: Colors.white),
+                              ),
+                            ],
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Column(
+                            children: [
+                              Image.asset(
+                                'resources/images/Like.png',
+                                color: Colors.white,
+                              ),
+                              Text(
+                                ' Rate ',
+                                style: TextStyle(color: Colors.white),
+                              ),
+                            ],
+                          ),
+                        ),
+                        Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Column(
+                            children: [
+                              Image.asset(
+                                'resources/images/Share.png',
+                                color: Colors.white,
+                              ),
+                              Text(
+                                ' Share ',
+                                style: TextStyle(color: Colors.white),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
                 ],
               ),
             ),
+
+            // Center(
+            //   child: Row(
+            //     children: [
+            //       Column(
+            //         children: [
+            //           Image.asset(
+            //             'resources/images/add.png',
+            //             color: Colors.white,
+            //           ),
+            //           Text(
+            //             ' My List ',
+            //             style: TextStyle(color: Colors.white),
+            //           ),
+            //         ],
+            //       ),
+            //       Column(
+            //         children: [
+            //           Image.asset(
+            //             'resources/images/Like.png',
+            //             color: Colors.white,
+            //           ),
+            //           Text(
+            //             ' Rate ',
+            //             style: TextStyle(color: Colors.white),
+            //           ),
+            //         ],
+            //       ),
+            //       Column(
+            //         children: [
+            //           Image.asset(
+            //             'resources/images/Share.png',
+            //             color: Colors.white,
+            //           ),
+            //           Text(
+            //             ' Share ',
+            //             style: TextStyle(color: Colors.white),
+            //           ),
+            //         ],
+            //       ),
+            //     ],
+            //   ),
+            // ),
             Center(
               child: Row(
                 children: [
-                  Text(
-                    '  Episodes  ',
-                    style: TextStyle(color: Colors.white),
+                  Column(
+                    children: [
+                      Text(
+                        '  Episodes  ',
+                        style: TextStyle(color: Colors.white),
+                      ),
+                    ],
                   ),
                   Text(
                     '  Collection  ',
@@ -227,8 +314,80 @@ class MovieDetailsScreen extends StatelessWidget {
                   style: TextStyle(color: Colors.white),
                 ),
                 Image.asset(
-                  'resources/images/close.png',
+                  'resources/images/bas.png',
                   color: Colors.white,
+                  height: 10,
+                  width: 10,
+                ),
+              ],
+            ),
+
+            Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: SizedBox(
+                    height: 70,
+                    width: 120,
+                    child: Stack(
+                      children: [
+                        Positioned.fill(
+                          child: Container(
+                            color: Colors.grey,
+                            height: 20,
+                            width: 35,
+                          ),
+                        ),
+                        Positioned(
+                          child: Image.asset(
+                            'resources/images/boutblanc.png',
+                            color: Colors.white,
+                            height: 20,
+                          ),
+                          right: 50,
+                          top: 20,
+                        ),
+                      ],
+                    ),
+                  ),
+                ),
+                Column(
+                  children: [
+                    Text(
+                      ' 1.Game Changer',
+                      style: TextStyle(color: Colors.white),
+                    ),
+                    Text(
+                      '37min',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 10,
+                      ),
+                    ),
+                  ],
+                ),
+              ],
+            ),
+            Row(
+              children: [
+                Column(
+                  children: [
+                    Text(
+                      'Flying high: Chrishell reveals her latest love - Jason.In LA,the agents',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 12,
+                      ),
+                    ),
+                    Text(
+                      'get real about the relationship while Christine readies her return.',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 12,
+                      ),
+                    ),
+                  ],
                 ),
               ],
             ),
