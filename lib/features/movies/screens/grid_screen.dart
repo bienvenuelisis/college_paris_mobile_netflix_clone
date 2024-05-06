@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:netflix_clone/features/about/screens/about_screen.dart';
 import 'package:netflix_clone/features/movies/services/movies_service.dart';
+import 'package:netflix_clone/features/movies/states/counter_state.dart';
 import 'package:netflix_clone/features/search/functions/search_util.dart';
 import 'package:netflix_clone/features/users/screens/user_home_screen.dart';
 import 'package:netflix_clone/functions/navigation.dart';
 
 import '../models/movie.dart';
+import 'app_bottom_navigation_bar.dart';
 
 class MoviesGridScreen extends StatefulWidget {
   const MoviesGridScreen({super.key});
@@ -22,6 +24,7 @@ class _MoviesGridScreenState extends State<MoviesGridScreen> {
     MoviesService.getPopularMovies().then(
       (value) => setState(() {
         movies = value;
+        counterN.value = value.length;
       }),
     );
     super.initState();
@@ -59,40 +62,7 @@ class _MoviesGridScreenState extends State<MoviesGridScreen> {
                   )
           ],
         ),
-        bottomNavigationBar: Container(
-          height: 60,
-          color: const Color.fromARGB(255, 0, 0, 0),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: [
-              const Icon(
-                Icons.home,
-                color: Colors.grey,
-              ),
-              const Icon(
-                Icons.smart_display_rounded,
-                color: Colors.grey,
-              ),
-              const Icon(
-                Icons.emoji_emotions_outlined,
-                color: Colors.grey,
-              ),
-              InkWell(
-                onTap: () {
-                  debugPrint("zer");
-                },
-                child: const Icon(
-                  Icons.search_sharp,
-                  color: Colors.grey,
-                ),
-              ),
-              const Icon(
-                Icons.download_for_offline_outlined,
-                color: Colors.grey,
-              )
-            ],
-          ),
-        ));
+        bottomNavigationBar: const AppBottomNavigationBar());
   }
 }
 
@@ -118,6 +88,7 @@ class MovieCard extends StatelessWidget {
           context,
           AboutScreen(movie),
         );
+        counterN.value--;
       },
       child: Container(
         margin: const EdgeInsets.all(3),
