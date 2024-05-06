@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:netflix_clone/features/home/screens/home_screen.dart';
 import 'package:netflix_clone/features/movies/screens/grid_screen.dart';
+import 'package:netflix_clone/functions/navigation.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-class DebutScreen extends StatefulWidget {
-  const DebutScreen({super.key});
+class SplashScreen extends StatefulWidget {
+  const SplashScreen({super.key});
 
   @override
-  State<DebutScreen> createState() => _DebutScreenState();
+  State<SplashScreen> createState() => _SplashScreenState();
 }
 
-class _DebutScreenState extends State<DebutScreen> {
+class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     Duration duration = const Duration(milliseconds: 2400);
@@ -36,16 +37,11 @@ class _DebutScreenState extends State<DebutScreen> {
 
   void navigateHome(bool firstNav) {
     if (firstNav) {
-      Navigator.push(
-        context,
-        MaterialPageRoute(builder: (context) => const HomeScreen()),
-      );
+      allerSurUnePageEtEnleverLaPagePrecedente(context, const HomeScreen());
     } else {
-      Navigator.push(
+      allerSurUnePageEtEnleverLaPagePrecedente(
         context,
-        MaterialPageRoute(
-          builder: (context) => const MoviesGridScreen(),
-        ),
+        const MoviesGridScreen(),
       );
     }
   }
