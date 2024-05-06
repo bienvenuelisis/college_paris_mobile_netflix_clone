@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class MovieDetailsScreen extends StatelessWidget {
+  const MovieDetailsScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -24,36 +26,36 @@ class MovieDetailsScreen extends StatelessWidget {
                       ),
                     ),
                     Positioned(
+                      right: 80,
+                      top: 8,
                       child: Image.asset(
                         'resources/images/im.png',
                         color: Colors.white,
                       ),
-                      right: 80,
-                      top: 8,
                     ),
                     Positioned(
+                      right: 10,
                       child: Image.asset(
                         'resources/images/close.png',
                         color: Colors.white,
                       ),
-                      right: 10,
                     ),
                     Positioned(
+                      top: 60,
+                      left: MediaQuery.sizeOf(context).width / 2 - 50,
                       child: Image.asset(
                         'resources/images/bout.png',
                         width: 50,
                         height: 50,
                       ),
-                      top: 60,
-                      left: MediaQuery.sizeOf(context).width / 2 - 50,
                     ),
-                    Positioned(
+                    const Positioned(
+                      bottom: 10,
+                      left: 10,
                       child: Text(
                         ' Trailer ',
                         style: TextStyle(color: Colors.white),
                       ),
-                      bottom: 10,
-                      left: 10,
                     ),
                   ],
                 ),
@@ -62,7 +64,7 @@ class MovieDetailsScreen extends StatelessWidget {
             Row(
               children: [
                 Image.asset('resources/images/netf.png'),
-                Column(
+                const Column(
                   children: [
                     Text(
                       ' SERIES ',
@@ -81,23 +83,23 @@ class MovieDetailsScreen extends StatelessWidget {
             ),
             Row(
               children: [
-                Text(
+                const Text(
                   ' 2022 ',
                   style: TextStyle(
                     color: Colors.white,
                   ),
                 ),
                 Image.asset('resources/images/tv.png'),
-                Text(
+                const Text(
                   ' 5 Seasons ',
                   style: TextStyle(color: Colors.white),
                 ),
                 Image.asset('resources/images/vis.png'),
-                Text(
+                const Text(
                   ' ',
                 ),
                 Image.asset('resources/images/hd.png'),
-                Text(
+                const Text(
                   ' ',
                 ),
                 Image.asset('resources/images/ad.png'),
@@ -115,7 +117,7 @@ class MovieDetailsScreen extends StatelessWidget {
                     foregroundColor: Colors.white,
                     elevation: 10,
                   ),
-                  child: Text(
+                  child: const Text(
                     ' Play',
                     style: TextStyle(
                       color: Colors.black,
@@ -129,7 +131,7 @@ class MovieDetailsScreen extends StatelessWidget {
               height: 40,
               width: MediaQuery.sizeOf(context).width * 0.75,
               child: ColoredBox(
-                color: Color.fromARGB(255, 64, 63, 63),
+                color: const Color.fromARGB(255, 64, 63, 63),
                 child: ElevatedButton(
                   onPressed: null,
                   style: ElevatedButton.styleFrom(
@@ -137,7 +139,7 @@ class MovieDetailsScreen extends StatelessWidget {
                     foregroundColor: Colors.white,
                     elevation: 10,
                   ),
-                  child: Text(
+                  child: const Text(
                     ' Download ',
                     style: TextStyle(
                       color: Color.fromARGB(225, 175, 171, 171),
@@ -147,7 +149,7 @@ class MovieDetailsScreen extends StatelessWidget {
                 ),
               ),
             ),
-            Row(
+            const Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Column(
@@ -195,7 +197,7 @@ class MovieDetailsScreen extends StatelessWidget {
                                 'resources/images/add.png',
                                 color: Colors.white,
                               ),
-                              Text(
+                              const Text(
                                 ' My List ',
                                 style: TextStyle(color: Colors.white),
                               ),
@@ -210,7 +212,7 @@ class MovieDetailsScreen extends StatelessWidget {
                                 'resources/images/Like.png',
                                 color: Colors.white,
                               ),
-                              Text(
+                              const Text(
                                 ' Rate ',
                                 style: TextStyle(color: Colors.white),
                               ),
@@ -225,7 +227,7 @@ class MovieDetailsScreen extends StatelessWidget {
                                 'resources/images/Share.png',
                                 color: Colors.white,
                               ),
-                              Text(
+                              const Text(
                                 ' Share ',
                                 style: TextStyle(color: Colors.white),
                               ),
@@ -281,7 +283,7 @@ class MovieDetailsScreen extends StatelessWidget {
             //     ],
             //   ),
             // ),
-            Center(
+            const Center(
               child: Row(
                 children: [
                   Column(
@@ -309,7 +311,7 @@ class MovieDetailsScreen extends StatelessWidget {
             ),
             Row(
               children: [
-                Text(
+                const Text(
                   '  Season 5  ',
                   style: TextStyle(color: Colors.white),
                 ),
@@ -340,19 +342,19 @@ class MovieDetailsScreen extends StatelessWidget {
                           ),
                         ),
                         Positioned(
+                          right: 50,
+                          top: 20,
                           child: Image.asset(
                             'resources/images/boutblanc.png',
                             color: Colors.white,
                             height: 20,
                           ),
-                          right: 50,
-                          top: 20,
                         ),
                       ],
                     ),
                   ),
                 ),
-                Column(
+                const Column(
                   children: [
                     Text(
                       ' 1.Game Changer',
@@ -369,7 +371,7 @@ class MovieDetailsScreen extends StatelessWidget {
                 ),
               ],
             ),
-            Row(
+            const Row(
               children: [
                 Column(
                   children: [

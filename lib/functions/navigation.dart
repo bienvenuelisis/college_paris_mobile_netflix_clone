@@ -14,3 +14,7 @@ void allerSurUnePageEtMaintenirLaPagePrecedente(
 
   state.push(route);
 }
+
+void navigation(BuildContext context, Widget page) {
+  Navigator.push(context, MaterialPageRoute(builder: (context) => page));
+}
