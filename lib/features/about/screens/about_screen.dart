@@ -1,8 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:netflix_clone/features/movies/models/movie.dart';
+import 'package:netflix_clone/features/movies/screens/grid_screen.dart';
 import 'package:netflix_clone/features/users/screens/user_home_screen.dart';
 
 class AboutScreen extends StatelessWidget {
-  const AboutScreen({super.key});
+  const AboutScreen(this.movie, {super.key});
+
+  final Movie movie;
 
   @override
   Widget build(BuildContext context) {
@@ -15,9 +19,15 @@ class AboutScreen extends StatelessWidget {
               Container(
                 margin: const EdgeInsets.only(top: 10),
                 height: 210,
-                decoration: const BoxDecoration(
-                  color: Color.fromARGB(255, 40, 39, 39),
-                  borderRadius: BorderRadius.only(
+                decoration: BoxDecoration(
+                  color: const Color.fromARGB(255, 40, 39, 39),
+                  image: DecorationImage(
+                    image: NetworkImage(
+                      fullImagePath(movie.backgroundImageUrl),
+                    ),
+                    fit: BoxFit.fitHeight,
+                  ),
+                  borderRadius: const BorderRadius.only(
                       topLeft: Radius.circular(10.0),
                       topRight: Radius.circular(10.0)),
                 ),
@@ -110,9 +120,9 @@ class AboutScreen extends StatelessWidget {
                               height: 30,
                               width: 500,
                               margin: const EdgeInsets.only(top: 3),
-                              child: const Text(
-                                'Selling Sunset',
-                                style: TextStyle(
+                              child: Text(
+                                movie.title,
+                                style: const TextStyle(
                                     color: Colors.white,
                                     fontWeight: FontWeight.bold,
                                     fontSize: 16),
@@ -255,10 +265,10 @@ class AboutScreen extends StatelessWidget {
                                     ))),
                             Container(
                               margin: const EdgeInsets.only(top: 15),
-                              child: const Column(
+                              child: Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  SizedBox(
+                                  const SizedBox(
                                     child: Text(
                                         'S5:E10 Nothing Remains The Same',
                                         style: TextStyle(
@@ -267,9 +277,8 @@ class AboutScreen extends StatelessWidget {
                                             fontSize: 13)),
                                   ),
                                   SizedBox(
-                                    child: Text(
-                                        'Hearts flip as Heather weds Tarek. Jason and Mary grapple with being ghosted. Go solo or take the next step: The agents face life-changing decisions.',
-                                        style: TextStyle(
+                                    child: Text(movie.overview,
+                                        style: const TextStyle(
                                             fontWeight: FontWeight.w200,
                                             color: Colors.white,
                                             fontSize: 12)),

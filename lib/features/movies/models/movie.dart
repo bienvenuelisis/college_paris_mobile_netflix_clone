@@ -2,6 +2,7 @@
 class Movie {
   final bool adult;
   final String backgroundImageUrl;
+  final String posterImageUrl;
   final int id;
   final String originalLangage;
   final String originalTitle;
@@ -11,6 +12,7 @@ class Movie {
 
   Movie({
     this.adult = false,
+    this.posterImageUrl = '',
     this.backgroundImageUrl = '',
     this.id = 0,
     this.originalLangage = '',
@@ -22,9 +24,10 @@ class Movie {
 }
 
 Movie fromJsonToMovie(Map<String, dynamic> json) {
-  return Movie(
+  final movie = Movie(
     adult: json["adult"],
     backgroundImageUrl: json["backdrop_path"],
+    posterImageUrl: json["poster_path"],
     id: json["id"],
     originalLangage: json["original_language"],
     originalTitle: json["original_title"],
@@ -32,4 +35,6 @@ Movie fromJsonToMovie(Map<String, dynamic> json) {
     releaseDate: DateTime.now(),
     title: json["title"],
   );
+
+  return movie;
 }
